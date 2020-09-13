@@ -46,9 +46,9 @@ const Persik = ({ id, go, fetchedUser }) => (
         type="text"
         value="Cчет VK Pay 1234"
       />
-      {/* <Button size="xl" onClick={go} data-to="Additionally">
+      <Button size="xl" onClick={go} data-to="Additionally">
         Далее
-      </Button> */}
+      </Button>
     </FormLayout>
   </Panel>
 );
