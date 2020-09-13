@@ -30,9 +30,9 @@ const Persik = ({ id, go, fetchedUser }) => (
       Целевой сбор
     </PanelHeader>
     <FormLayout>
-      {/* <File top="Загрузите ваше фото" before={<Icon24Camera />} controlSize="l">
-          Открыть галерею
-        </File> */}
+      <File top="Загрузите ваше фото" before={<Icon24Camera />} controlSize="l">
+        Открыть галерею
+      </File>
 
       <Input top="Название сбора" type="text" placeholder="Название сбора" />
       <Input top="Сумма, ₽" type="text" placeholder="Сколько нужно собрать?" />
@@ -41,12 +41,8 @@ const Persik = ({ id, go, fetchedUser }) => (
         top="Описание "
         placeholder="На что пойдут деньги и как они кому-то помогут?"
       />
-      <Input
-        top="Куда получит        ь деньги"
-        type="text"
-        value="Cчет VK Pay 1234"
-      />
-      <Button size="xl" onClick={go} data-to="Additionally">
+      <Input top="Куда получать деньги" type="text" value="Cчет VK Pay 1234" />
+      <Button size="xl" onClick={go} data-to="additionally">
         Далее
       </Button>
     </FormLayout>
