@@ -18,7 +18,20 @@ import AddImage from "./AddImage";
 
 const osName = platform();
 
-const Persik = ({ id, go, fetchedUser }) => {
+const Target = ({
+  id,
+  go,
+  purpose,
+  OnChangePurpose,
+  title,
+  OnChangeTitle,
+  invoice,
+  OnChangeInvoice,
+  description,
+  OnChangeDescription,
+  summ,
+  OnChangeSumm,
+}) => {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -73,26 +86,53 @@ const Persik = ({ id, go, fetchedUser }) => {
             </File>
           )}
         </div>
-        <Input top="Название сбора" type="text" placeholder="Название сбора" />
+        <Input
+          top="Название сбора"
+          type="text"
+          value={title}
+          placeholder="Название сбора"
+          onChange={(event) => {
+            OnChangeTitle(event.target.value);
+          }}
+        />
         <Input
           top="Сумма, ₽"
           type="text"
           placeholder="Сколько нужно собрать?"
+          value={summ}
+          placeholder="Например, 10 000 рублей"
+          onChange={(event) => {
+            OnChangeSumm(event.target.value);
+          }}
         />
         <Input
           top="Цель"
           type="text"
+          value={purpose}
           placeholder="Например, лечение человека"
+          onChange={(event) => {
+            OnChangePurpose(event.target.value);
+          }}
         />
+
         <Textarea
-          top="Описание "
+          top="Описание"
           placeholder="На что пойдут деньги и как они кому-то помогут?"
+          value={description}
+          onChange={(event) => {
+            OnChangeDescription(event.target.value);
+          }}
         />
+
         <Input
           top="Куда получать деньги"
           type="text"
-          value="Cчет VK Pay 1234"
+          value={invoice}
+          onChange={(event) => {
+            OnChangeInvoice(event.target.value);
+          }}
         />
+
         <Button size="xl" onClick={go} data-to="additionally">
           Далее
         </Button>
@@ -101,9 +141,9 @@ const Persik = ({ id, go, fetchedUser }) => {
   );
 };
 
-Persik.propTypes = {
+Target.propTypes = {
   id: PropTypes.string.isRequired,
   go: PropTypes.func.isRequired,
 };
 
-export default Persik;
+export default Target;
