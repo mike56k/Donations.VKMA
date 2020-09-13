@@ -11,13 +11,14 @@ import {Button} from '@vkontakte/vkui';
 import {Select} from '@vkontakte/vkui';
 import {FormLayoutGroup} from '@vkontakte/vkui';
 import {Radio} from '@vkontakte/vkui';
+import {Input} from '@vkontakte/vkui';
 
 const osName = platform();
 
 const Additionally = ({ id, go, fetchedUser })  => (
 	<Panel id={id}>
 		<PanelHeader
-			left={<PanelHeaderButton onClick={go} data-to="home">
+			left={<PanelHeaderButton onClick={go} data-to="persik">
 				{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 			</PanelHeaderButton>}
 		>
@@ -34,9 +35,11 @@ const Additionally = ({ id, go, fetchedUser })  => (
 			<Radio name="type">В определенную дату</Radio>
 		</FormLayoutGroup>
 
-		<Select top="Дата окончания" placeholder="Выберите дату">
+		<Input top="Дата окончания" type="date" placeholder="Выберите дату" />
 
-		</Select>
+		
+
+		
         
 		<Button size="xl">Создать сбор</Button>
       </FormLayout>

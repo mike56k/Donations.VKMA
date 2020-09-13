@@ -19,7 +19,7 @@ const Home = ({ id, go, fetchedUser }) => (
           </Text>
         </Div>
         <Div id="btn">
-          <Button onClick={go} data-to="persik" size="l">
+          <Button onClick={go} data-to="choosetype" size="l">
             Создать сбор
           </Button>
         </Div>

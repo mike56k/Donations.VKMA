@@ -19,7 +19,7 @@ import "./Persik.css";
 
 const osName = platform();
 
-const Persik = ({ id, go, fetchedUser }) => (
+const Regular = ({ id, go, fetchedUser }) => (
   <Panel id={id}>
     <PanelHeader
       left={
@@ -28,7 +28,7 @@ const Persik = ({ id, go, fetchedUser }) => (
         </PanelHeaderButton>
       }
     >
-    Целевой сбор
+      Регулярный сбор
     </PanelHeader>
     <FormLayout>
       <File top="Загрузите ваше фото" before={<Icon24Camera />} controlSize="l">
@@ -36,27 +36,27 @@ const Persik = ({ id, go, fetchedUser }) => (
       </File>
 
       <Input top="Название сбора" type="text" placeholder="Название сбора" />
-      <Input top="Сумма, ₽" type="text" placeholder="Сколько нужно собрать?" />
+	  <Input top="Сумма в месяц, ₽" type="text" placeholder="Сколько нужно в месяц?" />
+      <Input top="Цель" type="text" placeholder="Например, поддержка приюта" />
       <Input top="Цель" type="text" placeholder="Например, лечение человека" />
       <Textarea
-        top="Описание "
+        top="Описание"
         placeholder="На что пойдут деньги и как они кому-то помогут?"
       />
-      <Input top="Куда получать деньги" type="text" value="Cчет VK Pay 1234" />
-      <Select top="Автор" placeholder="Введите автора">
-              <option value="Danila_Komlev">Данила Комлев</option>
-              <option value="Mikhail_Isachenko">Михаил Исаченко</option>
+      <Select top="Куда получать деньги" placeholder="Введите автора">
+              <option value="VK_Pay">Cчет VK Pay 1234</option>
             </Select>
       <Button size="xl" onClick={go} data-to="additionally">
         Далее
       </Button>
     </FormLayout>
+    
   </Panel>
 );
 
-Persik.propTypes = {
+Regular.propTypes = {
   id: PropTypes.string.isRequired,
   go: PropTypes.func.isRequired,
 };
 
-export default Persik;
+export default Regular;
