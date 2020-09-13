@@ -8,6 +8,7 @@ import Target from "./panels/Target";
 import Additionally from "./panels/Additionally";
 import Regular from "./panels/Regular";
 import ChooseType from "./panels/ChooseType";
+import Snippet from "./panels/Snippet";
 
 const App = () => {
   const [activePanel, setActivePanel] = useState("home");
@@ -94,6 +95,7 @@ const App = () => {
       <Additionally id="additionally" go={go} />
       <Regular id="regular" go={go} />
       <ChooseType id="choosetype" go={go} />
+      <Snippet id="snippet" go={go}/>
     </View>
   );
 };
