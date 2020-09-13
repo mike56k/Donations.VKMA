@@ -25,20 +25,11 @@ const Persik = ({ id, go, fetchedUser })  => (
 				{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 			</PanelHeaderButton>}
 		>
-			Целевой сбор
+			Дополнительно
 		</PanelHeader>
 		<FormLayout>
-<File top="Загрузите ваше фото" before={<Icon24Camera />} controlSize="l">
-          Открыть галерею
-        </File>
         
-		
-        <Input top="Название сбора" type="text"  placeholder="Название сбора" />
-	    <Input  top="Сумма, ₽" type="text"  placeholder="Сколько нужно собрать?" />
-		<Input  top="Цель" type="text"  placeholder="Например, лечение человека" />
-        <Textarea top="Описание " placeholder="На что пойдут деньги и как они кому-то помогут?" />
-		<Input  top="Куда получит        ь деньги" type="text"  value="Cчет VK Pay 1234" />
-		<Button size="xl" onClick={go} data-to="Additionally">Далее</Button>
+		<Button size="xl">Далее</Button>
       </FormLayout>
 	</Panel>
 );
