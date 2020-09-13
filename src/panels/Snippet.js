@@ -10,48 +10,82 @@ import Icon24Back from "@vkontakte/icons/dist/24/back";
 import { Div } from "@vkontakte/vkui";
 import { InfoRow } from "@vkontakte/vkui";
 import { Progress } from "@vkontakte/vkui";
-import {Button} from "@vkontakte/vkui";
+import { Button } from "@vkontakte/vkui";
+import { Text } from "@vkontakte/vkui";
+import { Title } from "@vkontakte/vkui";
 
-
-import "./Persik.css";
+import "./Target.css";
 
 const osName = platform();
 
-const Snippet = ({ id, go, fetchedUser }) => (
+const Snippet = ({
+  id,
+  go,
+  title,
+  description,
+  author,
+  summ,
+  date,
+  imageurl,
+  dateFinished,
+  regularDonats,
+}) => (
   <Panel id={id}>
     <PanelHeader
       left={
-        <PanelHeaderButton onClick={go} data-to="choosetype">
+        <PanelHeaderButton onClick={go} data-to="additionally">
           {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
         </PanelHeaderButton>
-        
-
-
-
       }
     >
-      Название сбора
+      {title === null || title === "" ? "Название сбора" : `${title}`}
     </PanelHeader>
     <FormLayout>
-        <img src="https://avatars.mds.yandex.net/get-pdb/1732919/c00329d1-cd54-48cf-a01d-053e225ef63b/s1200" width="200px"></img>
-        <InfoRow header="Помощь нужна каждый месяц"></InfoRow>
+      <Div className="pic">
+        {imageurl === null || imageurl === "" ? (
+          <img
+            src="https://glamtrek.com/public/assets/home/images/nocontent.jpg"
+            className="currentpic"
+            alt="uploaded_photo"
+          />
+        ) : (
+          <img src={imageurl} className="currentpic" alt="uploaded_photo" />
+        )}
+      </Div>
+      <Div>
         <InfoRow header="Автор">
-            Данила Комлев
-          </InfoRow>
-    <Div>
-          <InfoRow header="Надо собрать до конца недели">
-            <Progress color="red"  value={40} />
-          </InfoRow>
-        </Div>
-        <Div style={{ paddingTop: 60, paddingBottom: 60, color: 'black' }}>
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam aliquet tempor laoreet. Maecenas eu pulvinar diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas et elit eros. Quisque ullamcorper sodales nisi, eleifend aliquet metus venenatis in. Aliquam ornare a lacus in tincidunt. Cras vel tristique metus. Sed vitae nisl at nisl imperdiet sollicitudin. Sed sit amet enim in lectus imperdiet interdum condimentum et diam. Proin venenatis sit amet diam ac vulputate. Donec mauris orci, semper volutpat nunc ut, efficitur condimentum dolor. Vivamus in quam eget quam lacinia pharetra. Phasellus ipsum magna, aliquet id elit eget, cursus tincidunt ex. In rhoncus turpis turpis, et viverra ex malesuada vel. Donec nisi tellus, mollis et posuere vel, dictum eget neque.
-          </Div>
+          {author === null || author === "" ? "Имя автора" : `${author}`}
+        </InfoRow>
+        <InfoRow header="Тип сбора">
+          {regularDonats === true ? "Целевой сбор" : "Регулярный сбор"}
+        </InfoRow>
+      </Div>
+      <Div>
+        {dateFinished ? (
+          <Text>
+            Надо собрать до:{" "}
+            {date === null || date === "" ? "(Вы не ввели дату)" : `${date}`}
+          </Text>
+        ) : (
+          <Text>Сбор, пока не соберем</Text>
+        )}
 
-          <Button size="xl" onClick={go} data-to="home">
+        <Title level="2" weight="heavy" style={{ marginBottom: 16 }}>
+          {summ === null || summ === "" ? "Вы не ввели сумму" : `${summ}`}
+        </Title>
+
+        <Progress color="red" value={40} />
+      </Div>
+      <Div style={{ paddingTop: 60, paddingBottom: 60, color: "black" }}>
+        {description === null || description === ""
+          ? "Описание не заполнено"
+          : `${description}`}
+      </Div>
+
+      <Button size="xl" onClick={go} data-to="additionally">
         Помочь
       </Button>
     </FormLayout>
-    
   </Panel>
 );
 

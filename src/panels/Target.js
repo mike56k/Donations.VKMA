@@ -32,6 +32,7 @@ const Target = ({
   OnChangeDescription,
   summ,
   OnChangeSumm,
+  OnChangeImageUrl,
 }) => {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -53,6 +54,7 @@ const Target = ({
     const file = await res.json();
 
     setImage(file.secure_url);
+    OnChangeImageUrl(file.secure_url);
     setLoading(false);
     setLoaded(true);
   };
@@ -61,7 +63,7 @@ const Target = ({
     <Panel id={id}>
       <PanelHeader
         left={
-          <PanelHeaderButton onClick={go} data-to="home">
+          <PanelHeaderButton onClick={go} data-to="choosetype">
             {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
           </PanelHeaderButton>
         }
@@ -125,7 +127,7 @@ const Target = ({
 
         <Select
           top="Куда получать деньги"
-          placeholder="Введите автора"
+          placeholder="Выберите кошелёк"
           onChange={(event) => {
             OnChangeInvoice(event.target.value);
           }}

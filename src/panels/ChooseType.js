@@ -6,7 +6,6 @@ import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
 import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
 import FormLayout from "@vkontakte/vkui/dist/components/FormLayout/FormLayout";
-import Icon24Camera from "@vkontakte/icons/dist/24/camera";
 import Icon24Back from "@vkontakte/icons/dist/24/back";
 import Icon28Calendar_outline from "@vkontakte/icons/dist/28/calendar_outline";
 import Icon28Target_outline from "@vkontakte/icons/dist/28/target_outline";
@@ -16,7 +15,7 @@ import "./ChooseType.css";
 
 const osName = platform();
 
-const ChooseType = ({ id, go, fetchedUser }) => (
+const ChooseType = ({ id, go, fetchedUser, OnChangeRegularDonats }) => (
   <Panel id={id}>
     <PanelHeader
       left={
@@ -35,6 +34,9 @@ const ChooseType = ({ id, go, fetchedUser }) => (
         expandable
         mode="secondary"
         onClick={go}
+        onFocus={() => {
+          OnChangeRegularDonats(true);
+        }}
         data-to="target"
         size="l"
       >
@@ -45,6 +47,9 @@ const ChooseType = ({ id, go, fetchedUser }) => (
         after={<Icon24Chevron_right />}
         mode="secondary"
         onClick={go}
+        onFocus={() => {
+          OnChangeRegularDonats(false);
+        }}
         data-to="regular"
         size="l"
       >

@@ -23,9 +23,6 @@ const Home = ({ id, go, fetchedUser }) => (
           <Button onClick={go} data-to="choosetype" size="l">
             Создать сбор
           </Button>
-          <Button onClick={go} data-to="snippet" size="l">
-            Тест
-          </Button>
         </Div>
       </Div>
     </Group>

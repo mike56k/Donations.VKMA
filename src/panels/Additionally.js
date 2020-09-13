@@ -16,7 +16,16 @@ import bridge from "@vkontakte/vk-bridge";
 
 const osName = platform();
 
-const Additionally = ({ id, go, fetchedUser }) => {
+const Additionally = ({
+  id,
+  go,
+  author,
+  date,
+  dateFinished,
+  OnChangeDate,
+  OnDateFinished,
+  OnChangeAuthor,
+}) => {
   const [message, setMessage] = useState("");
   const [dateFinish, setDateFinish] = useState(false);
   return (
@@ -31,32 +40,51 @@ const Additionally = ({ id, go, fetchedUser }) => {
         Дополнительно
       </PanelHeader>
       <FormLayout>
-        <Select top="Автор" placeholder="Введите автора">
-          <option value="Danila_Komlev">Данила Комлев</option>
-          <option value="Mikhail_Isachenko">Михаил Исаченко</option>
+        <Select
+          top="Автор"
+          placeholder="Введите автора"
+          onChange={(event) => {
+            OnChangeAuthor(event.target.value);
+          }}
+        >
+          {author === null || author === "" ? (
+            <option>Имя Фамилия</option>
+          ) : (
+            <option>{author}</option>
+          )}
         </Select>
 
         <FormLayoutGroup top="Сбор завершится">
           <Radio
             name="type"
+            checked={!dateFinished}
             onClick={() => {
-              setDateFinish(false);
+              OnDateFinished(false);
             }}
           >
             Когда соберем сумму
           </Radio>
           <Radio
             name="type"
+            checked={dateFinished}
             onClick={() => {
-              setDateFinish(true);
+              OnDateFinished(true);
             }}
           >
             В определенную дату
           </Radio>
         </FormLayoutGroup>
 
-        {dateFinish ? (
-          <Input top="Дата окончания" type="date" placeholder="Выберите дату" />
+        {dateFinished ? (
+          <Input
+            top="Дата окончания"
+            type="date"
+            placeholder="Выберите дату"
+            value={date}
+            onChange={(event) => {
+              OnChangeDate(event.target.value);
+            }}
+          />
         ) : (
           <></>
         )}
@@ -68,6 +96,9 @@ const Additionally = ({ id, go, fetchedUser }) => {
           }}
           placeholder="Расскажите про свое пожертвование"
         />
+        <Button mode="outline" onClick={go} data-to="snippet" size="xl">
+          Превью сбора
+        </Button>
         <Button
           size="xl"
           onClick={() => {
