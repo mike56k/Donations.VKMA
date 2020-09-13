@@ -11,11 +11,8 @@ import Icon24Back from "@vkontakte/icons/dist/24/back";
 import Icon28Calendar_outline from "@vkontakte/icons/dist/28/calendar_outline";
 import Icon28Target_outline from "@vkontakte/icons/dist/28/target_outline";
 import Icon24Chevron_right from "@vkontakte/icons/dist/24/chevron_right";
-
-
-import {FormStatus} from "@vkontakte/vkui";
-import {Button} from "@vkontakte/vkui";
-import "./Persik.css";
+import { Button } from "@vkontakte/vkui";
+import "./ChooseType.css";
 
 const osName = platform();
 
@@ -28,11 +25,31 @@ const ChooseType = ({ id, go, fetchedUser }) => (
         </PanelHeaderButton>
       }
     >
-    Тип сбора
+      Тип сбора
     </PanelHeader>
-    <FormLayout>
-    <Button before={<Icon28Target_outline/>}  after={<Icon24Chevron_right/>}  expandable mode="secondary" onClick={go} data-to="persik" size="l">Целевой сбор</Button>
-    <Button before={<Icon28Calendar_outline/>}  after={<Icon24Chevron_right/>} mode="secondary" onClick={go} data-to="regular" size="l">Регулярный сбор</Button>
+    <FormLayout className="chooseBtns">
+      <Button
+        className="first"
+        before={<Icon28Target_outline />}
+        after={<Icon24Chevron_right />}
+        expandable
+        mode="secondary"
+        onClick={go}
+        data-to="target"
+        size="l"
+      >
+        Целевой сбор &nbsp; &nbsp; &nbsp;
+      </Button>
+      <Button
+        before={<Icon28Calendar_outline />}
+        after={<Icon24Chevron_right />}
+        mode="secondary"
+        onClick={go}
+        data-to="regular"
+        size="l"
+      >
+        Регулярный сбор
+      </Button>
     </FormLayout>
   </Panel>
 );

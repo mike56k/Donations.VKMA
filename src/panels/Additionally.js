@@ -18,11 +18,12 @@ const osName = platform();
 
 const Additionally = ({ id, go, fetchedUser }) => {
   const [message, setMessage] = useState("");
+  const [dateFinish, setDateFinish] = useState(false);
   return (
     <Panel id={id}>
       <PanelHeader
         left={
-          <PanelHeaderButton onClick={go} data-to="persik">
+          <PanelHeaderButton onClick={go} data-to="target">
             {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
           </PanelHeaderButton>
         }
@@ -36,11 +37,29 @@ const Additionally = ({ id, go, fetchedUser }) => {
         </Select>
 
         <FormLayoutGroup top="Сбор завершится">
-          <Radio name="type">Когда соберем сумму</Radio>
-          <Radio name="type">В определенную дату</Radio>
+          <Radio
+            name="type"
+            onClick={() => {
+              setDateFinish(false);
+            }}
+          >
+            Когда соберем сумму
+          </Radio>
+          <Radio
+            name="type"
+            onClick={() => {
+              setDateFinish(true);
+            }}
+          >
+            В определенную дату
+          </Radio>
         </FormLayoutGroup>
 
-        <Input top="Дата окончания" type="date" placeholder="Выберите дату" />
+        {dateFinish ? (
+          <Input top="Дата окончания" type="date" placeholder="Выберите дату" />
+        ) : (
+          <></>
+        )}
         <Input
           top="Подпись к посту"
           type="text"
@@ -53,7 +72,7 @@ const Additionally = ({ id, go, fetchedUser }) => {
           size="xl"
           onClick={() => {
             bridge.send("VKWebAppShowWallPostBox", {
-              message: message + " https://vk.com/app7595067",
+              message: "https://vk.com/app7595067" + message,
             });
           }}
         >

@@ -14,8 +14,9 @@ const Home = ({ id, go, fetchedUser }) => (
     <Group title="Navigation Example">
       <Div className="wrapper">
         <Div>
-          <Text weight="regular" style={{ marginBottom: 16 }}>
-            У Вас пока нет сборов. Начните доброе дело.
+          <Text weight="regular" style={{ marginBottom: 16 }} className="first">
+            У Вас пока нет сборов. <br />
+            Начните доброе дело.
           </Text>
         </Div>
         <Div id="btn">

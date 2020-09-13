@@ -27,8 +27,9 @@ const App = () => {
   const [invoice, setInvoice] = useState(
     JSON.parse(localStorage.getItem("invoice") || "null") || null
   );
-  //const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
-
+  const [author, setAuthor] = useState(
+    JSON.parse(localStorage.getItem("invoice") || "null") || null
+  );
   useEffect(() => {
     bridge.subscribe(({ detail: { type, data } }) => {
       if (type === "VKWebAppUpdateConfig") {
@@ -52,7 +53,7 @@ const App = () => {
     <View activePanel={activePanel}>
       <Home id="home" fetchedUser={fetchedUser} go={go} />
       <Target
-        id="persik"
+        id="target"
         go={go}
         purpose={purpose}
         summ={summ}

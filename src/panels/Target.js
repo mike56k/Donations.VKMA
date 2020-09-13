@@ -12,8 +12,9 @@ import { Input } from "@vkontakte/vkui";
 import { Textarea } from "@vkontakte/vkui";
 import { Button } from "@vkontakte/vkui";
 import { Select } from "@vkontakte/vkui";
+import { ScreenSpinner } from "@vkontakte/vkui";
 
-import "./Persik.css";
+import "./Target.css";
 import AddImage from "./AddImage";
 
 const osName = platform();
@@ -68,10 +69,6 @@ const Target = ({
         Целевой сбор
       </PanelHeader>
       <FormLayout>
-        {/* <File style={{ background: "transparent" }}  top="Загрузите ваше фото">
-          
-        </File> */}
-
         <div className="pic">
           {loaded ? (
             <img
@@ -80,6 +77,8 @@ const Target = ({
               className="currentpic"
               alt="uploaded_photo"
             />
+          ) : loading ? (
+            <ScreenSpinner size="large" />
           ) : (
             <File style={{ background: "transparent" }} onChange={uploadImage}>
               <AddImage />
@@ -124,15 +123,19 @@ const Target = ({
           }}
         />
 
-        <Input
+        <Select
           top="Куда получать деньги"
-          type="text"
-          value={invoice}
+          placeholder="Введите автора"
           onChange={(event) => {
             OnChangeInvoice(event.target.value);
           }}
-        />
-
+        >
+          {invoice === null || invoice === "" ? (
+            <option>Счет VK Pay 1234</option>
+          ) : (
+            <option>{invoice}</option>
+          )}
+        </Select>
         <Button size="xl" onClick={go} data-to="additionally">
           Далее
         </Button>
