@@ -18,7 +18,7 @@ const Home = ({ id, go, fetchedUser }) => (
             У Вас пока нет сборов. Начните доброе дело.
           </Text>
         </Div>
-        <Div id="btn">
+        <Div>
           <Button onClick={go} data-to="persik" size="l">
             Создать сбор
           </Button>
