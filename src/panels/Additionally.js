@@ -52,7 +52,9 @@ const Additionally = ({ id, go, fetchedUser }) => {
         <Button
           size="xl"
           onClick={() => {
-            bridge.send("VKWebAppShowWallPostBox", { message: message });
+            bridge.send("VKWebAppShowWallPostBox", {
+              message: message + " https://vk.com/app7595067",
+            });
           }}
         >
           Создать сбор
