@@ -8,6 +8,9 @@ import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
 import FormLayout from "@vkontakte/vkui/dist/components/FormLayout/FormLayout";
 import Icon24Camera from "@vkontakte/icons/dist/24/camera";
 import Icon24Back from "@vkontakte/icons/dist/24/back";
+import Icon28Calendar_outline from "@vkontakte/icons/dist/28/calendar_outline";
+import Icon28Target_outline from "@vkontakte/icons/dist/28/target_outline";
+import Icon24Chevron_right from "@vkontakte/icons/dist/24/chevron_right";
 
 
 import {FormStatus} from "@vkontakte/vkui";
@@ -28,8 +31,8 @@ const ChooseType = ({ id, go, fetchedUser }) => (
     Тип сбора
     </PanelHeader>
     <FormLayout>
-    <Button before={<Icon24Camera/>} after={<Icon24Camera/>} mode="secondary" onClick={go} data-to="persik" size="l">Целевой сбор</Button>
-    <Button before={<Icon24Camera/>} mode="secondary" onClick={go} data-to="regular" size="l">Регулярный сбор</Button>
+    <Button before={<Icon28Target_outline/>}  after={<Icon24Chevron_right/>}  expandable mode="secondary" onClick={go} data-to="persik" size="l">Целевой сбор</Button>
+    <Button before={<Icon28Calendar_outline/>}  after={<Icon24Chevron_right/>} mode="secondary" onClick={go} data-to="regular" size="l">Регулярный сбор</Button>
     </FormLayout>
   </Panel>
 );
