@@ -11,6 +11,7 @@ import { File } from "@vkontakte/vkui";
 import { Input } from "@vkontakte/vkui";
 import { Textarea } from "@vkontakte/vkui";
 import { Button } from "@vkontakte/vkui";
+import { Select } from "@vkontakte/vkui";
 
 import "./Persik.css";
 import AddImage from "./AddImage";
