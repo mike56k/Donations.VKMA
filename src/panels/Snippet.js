@@ -77,9 +77,11 @@ const Snippet = ({
         <Progress color="red" value={40} />
       </Div>
       <Div style={{ paddingTop: 60, paddingBottom: 60, color: "black" }}>
-        {description === null || description === ""
-          ? "Описание не заполнено"
-          : `${description}`}
+        <Text>
+          {description === null || description === ""
+            ? "Описание не заполнено"
+            : `${description}`}
+        </Text>
       </Div>
 
       <Button size="xl" onClick={go} data-to="additionally">
