@@ -37,8 +37,8 @@ const Persik = ({ id, go, fetchedUser })  => (
 	    <Input  top="Сумма, ₽" type="text"  placeholder="Сколько нужно собрать?" />
 		<Input  top="Цель" type="text"  placeholder="Например, лечение человека" />
         <Textarea top="Описание " placeholder="На что пойдут деньги и как они кому-то помогут?" />
-		<Input  top="Куда получит        ь деньги" type="text"  value="Cчет VK Pay 1234" />
-		<Button size="xl" onClick={go} data-to="Additionally">Далее</Button>
+		<Input  top="Куда получать деньги" type="text"  value="Cчет VK Pay 1234" />
+		<Button size="xl" onClick={go} data-to="additionally">Далее</Button>
       </FormLayout>
 	</Panel>
 );

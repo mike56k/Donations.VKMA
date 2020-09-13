@@ -6,19 +6,15 @@ import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader
 import PanelHeaderButton from '@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import FormLayout from '@vkontakte/vkui/dist/components/FormLayout/FormLayout';
-import Icon24Camera from '@vkontakte/icons/dist/24/camera';
-import FormLayoutGroup from '@vkontakte/vkui/dist/components/FormLayoutGroup/FormLayoutGroup';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
-import {File} from '@vkontakte/vkui';
-import {Input} from '@vkontakte/vkui';
-import {Textarea} from '@vkontakte/vkui';
 import {Button} from '@vkontakte/vkui';
-
-import './Persik.css';
+import {Select} from '@vkontakte/vkui';
+import {FormLayoutGroup} from '@vkontakte/vkui';
+import {Radio} from '@vkontakte/vkui';
 
 const osName = platform();
 
-const Persik = ({ id, go, fetchedUser })  => (
+const Additionally = ({ id, go, fetchedUser })  => (
 	<Panel id={id}>
 		<PanelHeader
 			left={<PanelHeaderButton onClick={go} data-to="home">
@@ -28,15 +24,28 @@ const Persik = ({ id, go, fetchedUser })  => (
 			Дополнительно
 		</PanelHeader>
 		<FormLayout>
+		<Select top="Автор" placeholder="Введите автора">
+              <option value="Danila_Komlev">Данила Комлев</option>
+              <option value="Mikhail_Isachenko">Михаил Исаченко</option>
+            </Select>
+
+		<FormLayoutGroup top="Сбор завершится">
+			<Radio name="type">Когда соберем сумму</Radio>
+			<Radio name="type">В определенную дату</Radio>
+		</FormLayoutGroup>
+
+		<Select top="Дата окончания" placeholder="Выберите дату">
+
+		</Select>
         
-		<Button size="xl">Далее</Button>
+		<Button size="xl">Создать сбор</Button>
       </FormLayout>
 	</Panel>
 );
 
-Persik.propTypes = {
+Additionally.propTypes = {
 	id: PropTypes.string.isRequired,
 	go: PropTypes.func.isRequired,
 };
 
-export default Persik;
+export default Additionally;
