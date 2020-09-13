@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { platform, IOS } from "@vkontakte/vkui";
 import Panel from "@vkontakte/vkui/dist/components/Panel/Panel";
@@ -16,41 +16,51 @@ import bridge from "@vkontakte/vk-bridge";
 
 const osName = platform();
 
-const Additionally = ({ id, go, fetchedUser }) => (
-  <Panel id={id}>
-    <PanelHeader
-      left={
-        <PanelHeaderButton onClick={go} data-to="persik">
-          {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
-        </PanelHeaderButton>
-      }
-    >
-      Дополнительно
-    </PanelHeader>
-    <FormLayout>
-      <Select top="Автор" placeholder="Введите автора">
-        <option value="Danila_Komlev">Данила Комлев</option>
-        <option value="Mikhail_Isachenko">Михаил Исаченко</option>
-      </Select>
-
-      <FormLayoutGroup top="Сбор завершится">
-        <Radio name="type">Когда соберем сумму</Radio>
-        <Radio name="type">В определенную дату</Radio>
-      </FormLayoutGroup>
-
-      <Input top="Дата окончания" type="date" placeholder="Выберите дату" />
-
-      <Button
-        size="xl"
-        onClick={() => {
-          bridge.send("VKWebAppShowWallPostBox", { message: "Hello!" });
-        }}
+const Additionally = ({ id, go, fetchedUser }) => {
+  const [message, setMessage] = useState("");
+  return (
+    <Panel id={id}>
+      <PanelHeader
+        left={
+          <PanelHeaderButton onClick={go} data-to="persik">
+            {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
+          </PanelHeaderButton>
+        }
       >
-        Создать сбор
-      </Button>
-    </FormLayout>
-  </Panel>
-);
+        Дополнительно
+      </PanelHeader>
+      <FormLayout>
+        <Select top="Автор" placeholder="Введите автора">
+          <option value="Danila_Komlev">Данила Комлев</option>
+          <option value="Mikhail_Isachenko">Михаил Исаченко</option>
+        </Select>
+
+        <FormLayoutGroup top="Сбор завершится">
+          <Radio name="type">Когда соберем сумму</Radio>
+          <Radio name="type">В определенную дату</Radio>
+        </FormLayoutGroup>
+
+        <Input top="Дата окончания" type="date" placeholder="Выберите дату" />
+        <Input
+          top="Подпись к посту"
+          type="text"
+          onChange={(event) => {
+            setMessage(event.target.value);
+          }}
+          placeholder="Расскажите про свое пожертвование"
+        />
+        <Button
+          size="xl"
+          onClick={() => {
+            bridge.send("VKWebAppShowWallPostBox", { message: message });
+          }}
+        >
+          Создать сбор
+        </Button>
+      </FormLayout>
+    </Panel>
+  );
+};
 
 Additionally.propTypes = {
   id: PropTypes.string.isRequired,
