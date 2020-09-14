@@ -28,14 +28,6 @@ const Additionally = ({
   regularDonats,
 }) => {
   const [message, setMessage] = useState("");
-  const [authorFullName, setAuthorFullName] = useState("");
-  useEffect(() => {
-    bridge.send("VKWebAppGetUserInfo").then((res) => {
-      if (res !== undefined && res !== null) {
-        setAuthorFullName(res.data.first_name + " " + res.data.last_name);
-      }
-    });
-  }, []);
 
   return (
     <Panel id={id}>
@@ -52,14 +44,15 @@ const Additionally = ({
         <Select
           top="Автор"
           placeholder="Введите автора"
+          value={author}
           onChange={(event) => {
             OnChangeAuthor(event.target.value);
           }}
         >
-          {authorFullName === null || authorFullName === "" ? (
+          {author === null || author === "" ? (
             <option>Имя Фамилия</option>
           ) : (
-            <option>{authorFullName}</option>
+            <option>{author}</option>
           )}
         </Select>
         {regularDonats ? (
