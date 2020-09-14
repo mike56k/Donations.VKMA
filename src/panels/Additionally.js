@@ -25,6 +25,7 @@ const Additionally = ({
   OnChangeDate,
   OnDateFinished,
   OnChangeAuthor,
+  regularDonats,
 }) => {
   const [message, setMessage] = useState("");
   const [dateFinish, setDateFinish] = useState(false);
@@ -53,29 +54,32 @@ const Additionally = ({
             <option>{author}</option>
           )}
         </Select>
+        {regularDonats ? (
+          <FormLayoutGroup top="Сбор завершится">
+            <Radio
+              name="type"
+              checked={!dateFinished}
+              onClick={() => {
+                OnDateFinished(false);
+              }}
+            >
+              Когда соберем сумму
+            </Radio>
+            <Radio
+              name="type"
+              checked={dateFinished}
+              onClick={() => {
+                OnDateFinished(true);
+              }}
+            >
+              В определенную дату
+            </Radio>
+          </FormLayoutGroup>
+        ) : (
+          <></>
+        )}
 
-        <FormLayoutGroup top="Сбор завершится">
-          <Radio
-            name="type"
-            checked={!dateFinished}
-            onClick={() => {
-              OnDateFinished(false);
-            }}
-          >
-            Когда соберем сумму
-          </Radio>
-          <Radio
-            name="type"
-            checked={dateFinished}
-            onClick={() => {
-              OnDateFinished(true);
-            }}
-          >
-            В определенную дату
-          </Radio>
-        </FormLayoutGroup>
-
-        {dateFinished ? (
+        {dateFinished && regularDonats ? (
           <Input
             top="Дата окончания"
             type="date"

@@ -116,6 +116,7 @@ const App = () => {
         id="additionally"
         go={go}
         date={date}
+        regularDonats={regularDonats}
         dateFinished={dateFinished}
         author={author}
         OnChangeDate={(temp) => {
