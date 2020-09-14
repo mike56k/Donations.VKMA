@@ -78,9 +78,9 @@ const Snippet = ({
       </Div>
       <Div style={{ paddingTop: 60, paddingBottom: 60 }}>
         {description === null || description === "" ? (
-          <Text weight="regular">"Описание не заполнено"</Text>
+          <Text weight="regular">Описание не заполнено</Text>
         ) : (
-          <Text weight="regular">`${description}`</Text>
+          <Text weight="regular">{description}</Text>
         )}
       </Div>
 
