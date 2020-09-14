@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e2e7498b56ac55dda1d4a480c03bf40d",
+    "revision": "6a676a7f8581bf8cc536e991b1157562",
     "url": "/Donations.VKMA/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Donations.VKMA/static/css/2.09e62520.chunk.css"
   },
   {
-    "revision": "a468aee4a8ec7d5c7db9",
+    "revision": "82eb0806673885cc280a",
     "url": "/Donations.VKMA/static/css/main.5d2c93c8.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Donations.VKMA/static/js/2.29a9e04a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a468aee4a8ec7d5c7db9",
-    "url": "/Donations.VKMA/static/js/main.3ac8bdce.chunk.js"
+    "revision": "82eb0806673885cc280a",
+    "url": "/Donations.VKMA/static/js/main.b17b1c15.chunk.js"
   },
   {
     "revision": "a26f62060c536de108a9",
