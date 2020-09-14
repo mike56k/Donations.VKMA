@@ -71,7 +71,7 @@ const Snippet = ({
         )}
 
         <Title level="2" weight="heavy" style={{ marginBottom: 16 }}>
-          {summ === null || summ === "" ? "Вы не ввели сумму" : `${summ}`}
+          {summ === null || summ === "" ? "Вы не ввели сумму" : `${summ} ₽`}
         </Title>
 
         <Progress color="red" value={40} />

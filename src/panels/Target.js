@@ -98,10 +98,9 @@ const Target = ({
         />
         <Input
           top="Сумма, ₽"
-          type="text"
+          type="number"
           placeholder="Сколько нужно собрать?"
           value={summ}
-          placeholder="Например, 10 000 рублей"
           onChange={(event) => {
             OnChangeSumm(event.target.value);
           }}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { platform, IOS } from "@vkontakte/vkui";
 import Panel from "@vkontakte/vkui/dist/components/Panel/Panel";
@@ -28,7 +28,15 @@ const Additionally = ({
   regularDonats,
 }) => {
   const [message, setMessage] = useState("");
-  const [dateFinish, setDateFinish] = useState(false);
+  const [authorFullName, setAuthorFullName] = useState("");
+  useEffect(() => {
+    const res = bridge.send("VKWebAppGetUserInfo").then((res) => {
+      if (res !== undefined && res !== {} && res !== null) {
+        setAuthorFullName(res.data.firstname + " " + res.data.secondname);
+      }
+    });
+  }, []);
+
   return (
     <Panel id={id}>
       <PanelHeader
@@ -48,10 +56,10 @@ const Additionally = ({
             OnChangeAuthor(event.target.value);
           }}
         >
-          {author === null || author === "" ? (
+          {authorFullName === null || authorFullName === "" ? (
             <option>Имя Фамилия</option>
           ) : (
-            <option>{author}</option>
+            <option>{authorFullName}</option>
           )}
         </Select>
         {regularDonats ? (
