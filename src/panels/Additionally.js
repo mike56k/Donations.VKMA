@@ -30,8 +30,8 @@ const Additionally = ({
   const [message, setMessage] = useState("");
   const [authorFullName, setAuthorFullName] = useState("");
   useEffect(() => {
-    const res = bridge.send("VKWebAppGetUserInfo").then((res) => {
-      if (res !== undefined && res !== {} && res !== null) {
+    bridge.send("VKWebAppGetUserInfo").then((res) => {
+      if (res !== undefined && res !== null) {
         setAuthorFullName(res.data.firstname + " " + res.data.secondname);
       }
     });
