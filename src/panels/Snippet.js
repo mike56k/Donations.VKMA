@@ -76,7 +76,7 @@ const Snippet = ({
 
         <Progress color="red" value={40} />
       </Div>
-      <Div style={{ paddingTop: 60, paddingBottom: 60, color: "black" }}>
+      <Div style={{ paddingTop: 60, paddingBottom: 60 }}>
         {description === null || description === "" ? (
           <Text weight="regular">"Описание не заполнено"</Text>
         ) : (
