@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Donations.VKMA/static/css/main.5d2c93c8.chunk.css",
-    "main.js": "/Donations.VKMA/static/js/main.ee2dfab0.chunk.js",
-    "main.js.map": "/Donations.VKMA/static/js/main.ee2dfab0.chunk.js.map",
+    "main.js": "/Donations.VKMA/static/js/main.3ac8bdce.chunk.js",
+    "main.js.map": "/Donations.VKMA/static/js/main.3ac8bdce.chunk.js.map",
     "runtime-main.js": "/Donations.VKMA/static/js/runtime-main.3e71b2b3.js",
     "runtime-main.js.map": "/Donations.VKMA/static/js/runtime-main.3e71b2b3.js.map",
     "static/css/2.09e62520.chunk.css": "/Donations.VKMA/static/css/2.09e62520.chunk.css",
     "static/js/2.29a9e04a.chunk.js": "/Donations.VKMA/static/js/2.29a9e04a.chunk.js",
     "static/js/2.29a9e04a.chunk.js.map": "/Donations.VKMA/static/js/2.29a9e04a.chunk.js.map",
     "index.html": "/Donations.VKMA/index.html",
-    "precache-manifest.3c2ecad7602aa40b7598d57273175feb.js": "/Donations.VKMA/precache-manifest.3c2ecad7602aa40b7598d57273175feb.js",
+    "precache-manifest.fd581cfdec9801f6092fe9311df1bf73.js": "/Donations.VKMA/precache-manifest.fd581cfdec9801f6092fe9311df1bf73.js",
     "service-worker.js": "/Donations.VKMA/service-worker.js",
     "static/css/2.09e62520.chunk.css.map": "/Donations.VKMA/static/css/2.09e62520.chunk.css.map",
     "static/css/main.5d2c93c8.chunk.css.map": "/Donations.VKMA/static/css/main.5d2c93c8.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.09e62520.chunk.css",
     "static/js/2.29a9e04a.chunk.js",
     "static/css/main.5d2c93c8.chunk.css",
-    "static/js/main.ee2dfab0.chunk.js"
+    "static/js/main.3ac8bdce.chunk.js"
   ]
 }
