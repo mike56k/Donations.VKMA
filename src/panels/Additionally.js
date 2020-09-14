@@ -32,7 +32,7 @@ const Additionally = ({
   useEffect(() => {
     bridge.send("VKWebAppGetUserInfo").then((res) => {
       if (res !== undefined && res !== null) {
-        setAuthorFullName(res.data.firstname + " " + res.data.secondname);
+        setAuthorFullName(res.data.first_name + " " + res.data.last_name);
       }
     });
   }, []);
